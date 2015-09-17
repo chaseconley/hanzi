@@ -1,0 +1,96 @@
+<html>
+  <head>
+    <style  type="text/css">
+        .stroke-right {
+          -webkit-transform: translate(-300px, 0);
+          -ms-transform: translate(-300px, 0);
+          transform: translate(-300px, 0);
+          -webkit-animation: moving-panel 3s forwards;
+          animation: moving-panel 3s forwards;
+        }
+        
+        .stroke-down {
+          -webkit-transform: translate(0, -300px);
+          -ms-transform: translate(0, -300px);
+          transform: translate(0, -300px);
+          -webkit-animation: moving-panel 3s forwards;
+          animation: moving-panel 3s forwards;
+        }
+        
+        .stroke:nth-child(1) {
+          fill: #0E1826;
+        }
+        
+        @-webkit-keyframes moving-panel {
+          100% {
+            -webkit-transform:translate(0, 0);
+            transform: translate(0, 0);
+          }
+        }
+        
+        @keyframes moving-panel {
+          100% {
+            -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+          }
+        }
+        
+        /* Other stuff */
+        html, body {
+          height: 100%;
+        }
+        
+        body {
+          background: #EEE;
+          font: 14.5em/1 Open Sans, Impact;
+          text-transform: uppercase;
+        }
+        
+        svg {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+        }
+    </style>
+    
+    <script src="main.js"></script>
+  </head>
+  <body>
+    
+<button onclick="showAlert()">Try it</button>
+
+<svg viewBox="0 0 300 300">
+
+  <!-- Outlines of Strokes -->
+  <polygon points="42,69 45,67 57,67 68,66 128,59 203,50 213,50 247,42 256,44 278,59 277,64 273,67 259,67 233,64 202,65 168,69 142,71 100,77 76,83 65,87 56,84 48,80 44,77 41,73" style="fill: grey;" />
+  <polygon points="162,68 170,73 174,77 175,81 174,89 173,95 172,113 172,184 174,203 173,227 171,238 169,244 145,228 148,224 150,219 151,93 149,82 146,75 143,70 " style="fill: grey;" />
+
+  <!-- Clippath of Strokes -->
+  <clipPath id="stroke-0">
+    <polygon points="42,69 45,67 57,67 68,66 128,59 203,50 213,50 247,42 256,44 278,59 277,64 273,67 259,67 233,64 202,65 168,69 142,71 100,77 76,83 65,87 56,84 48,80 44,77 41,73" />
+  </clipPath>
+  
+  <clipPath id="stroke-1">
+		<polygon points="162,68 170,73 174,77 175,81 174,89 173,95 172,113 172,184 174,203 173,227 171,238 169,244 145,228 148,224 150,219 151,93 149,82 146,75 143,70 "  />
+  </clipPath>
+
+  <!-- Animated shapes inside stroke -->
+  <g clip-path="url(#stroke-0)" class="stroke">
+    
+    <rect 
+          width="100%"
+          height="100%"         
+          class="stroke-right"
+          ></rect>
+  </g>
+  
+  <g clip-path="url(#stroke-1)" class="stroke">
+    <rect style="-webkit-animation-delay: 3s; animation-delay: 3s;"
+          width="100%"
+          height="100%"         
+          class="stroke-down"
+          ></rect>
+  </g>
+</svg>
+
+  </body></html>
