@@ -10,11 +10,19 @@
         }
         
         .stroke-down {
-          -webkit-transform: translate(0, -300px);
+          -webkit-transform: translate(0, -300px) ;
           -ms-transform: translate(0, -300px);
           transform: translate(0, -300px);
           -webkit-animation: moving-panel 3s forwards;
           animation: moving-panel 3s forwards;
+        }
+        
+        .stroke-from-top-left {
+          -webkit-transform: translate(-30px, -30px) rotate(45deg);
+          -ms-transform: translate(-30px, -30px)  rotate(45deg);
+          transform: translate(-30px, -30px) rotate(45deg);
+          -webkit-animation: moving-panel-diag 3s forwards;
+          animation: moving-panel-diag 3s forwards;
         }
         
         .stroke:nth-child(1) {
@@ -32,6 +40,20 @@
           100% {
             -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
+          }
+        }
+        
+        @-webkit-keyframes moving-panel-diag {
+          100% {
+            -webkit-transform:translate(0, 0) rotate(45deg);
+            transform: translate(0, 0) rotate(45deg);
+          }
+        }
+        
+        @keyframes moving-panel-diag {
+          100% {
+            -webkit-transform: translate(0, 0) rotate(45deg);
+            transform: translate(0, 0) rotate(45deg);
           }
         }
         
@@ -65,7 +87,11 @@
 
   <!-- Clippath of Strokes -->
   <clipPath id="stroke-0">
-    <polygon points="42,69 45,67 57,67 68,66 128,59 203,50 213,50 247,42 256,44 278,59 277,64 273,67 259,67 233,64 202,65 168,69 142,71 100,77 76,83 65,87 56,84 48,80 44,77 41,73" />
+<!--     <polygon points="42,69 45,67 57,67 68,66 128,59 203,50 213,50 247,42 256,44 278,59 277,64 273,67 259,67 233,64 202,65 168,69 142,71 100,77 76,83 65,87 56,84 48,80 44,77 41,73" /> -->
+    <rect 
+      width="100%"
+      height="100%"         
+    ></rect>
   </clipPath>
   
   <clipPath id="stroke-1">
@@ -75,9 +101,9 @@
   <!-- Animated shapes inside stroke -->
   <g clip-path="url(#stroke-0)" class="stroke">
     <rect 
-      width="100%"
-      height="100%"         
-      class="stroke-right"
+      width="100px"
+      height="100px"         
+      class="stroke-from-top-left"
     ></rect>
   </g>
   
