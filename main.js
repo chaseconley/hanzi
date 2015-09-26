@@ -6,6 +6,8 @@ const durationScale = 0.005;
 const pause = 1;
 const RColor = "red";
 const OColor = "black";
+const canvasHeight = "355px";
+const canvasWidth = "320px";
 
 /*******************************************************************************
 ****************************** CLASS DEFINITIONS *******************************
@@ -263,6 +265,8 @@ strokes = ingestStrokeData("#1PR:42,69;45,67;57,67;68,66;128,59;203,50;213,50;24
 
 // Make SVG Canvas
 var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+svg.setAttribute('height', canvasHeight);
+svg.setAttribute('width', canvasWidth);
 var svgNS = svg.namespaceURI;
 
 // Grab the Syle Sheet for Later Additions
